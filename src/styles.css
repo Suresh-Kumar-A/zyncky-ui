@@ -1,2 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 @import 'assets/theme.css';
+
+@import "primeng/resources/primeng.css";
+
+html, body{
+    font-family: Helvetica;
+}

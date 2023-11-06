@@ -2,7 +2,9 @@
 @import 'assets/theme.css';
 
 @import "primeng/resources/primeng.css";
+@import "primeicons/primeicons.css";
 
 html, body{
     font-family: Helvetica;
+    background-color: #eff3f8;
 }

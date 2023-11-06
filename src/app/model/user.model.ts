@@ -1,10 +1,10 @@
 export interface User {
-  id: number;
-  uid: string;
+  id?: number;
+  uid?: string;
   userName: string;
-  displayName: string;
+  displayName?: string;
   password: string;
-  locked: boolean;
-  roleName: String;
-  createdAt: Date;
+  locked?: boolean;
+  roleName?: String;
+  createdAt?: Date;
 }

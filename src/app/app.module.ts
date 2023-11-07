@@ -18,6 +18,7 @@ import { MessageService } from "primeng/api";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NotificationService } from "./services/notification.service";
 import { StorageService } from "./services/storage.service";
+import { UserService } from "./services/user.service";
 
 @NgModule({
   declarations: [
@@ -39,7 +40,7 @@ import { StorageService } from "./services/storage.service";
     ReactiveFormsModule,
     ToastModule,
   ],
-  providers: [BackendService, MessageService, NotificationService, StorageService],
+  providers: [BackendService, MessageService, NotificationService, StorageService, UserService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

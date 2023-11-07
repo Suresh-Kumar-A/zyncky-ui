@@ -8,6 +8,7 @@ import { User } from "src/app/model/user.model";
 import { BackendService } from "src/app/services/backend.service";
 import { NotificationService } from "src/app/services/notification.service";
 import { StorageService } from "src/app/services/storage.service";
+import { UserService } from "src/app/services/user.service";
 
 @Component({
   selector: "app-login",
@@ -20,8 +21,7 @@ export class LoginComponent {
     password: new FormControl(''),
   });
 
-  constructor(private http: HttpClient, private backendSvc: BackendService, private router: Router,
-    private notificationSvc: NotificationService, private storageSvc: StorageService) { }
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
     this.loginFormGroup.reset();
@@ -29,15 +29,7 @@ export class LoginComponent {
 
   signIn() {
     const { userName, password } = this.loginFormGroup.value;
-    var newUser: User = { userName: userName, password: password };
-
-    this.backendSvc.loginUser(newUser).subscribe((response) => {
-      this.notificationSvc.showAuthSuccessMessage();
-      this.storageSvc.saveJwtToken(response);
-      this.router.navigateByUrl("/user/dashboard");
-    }, (httpErrResp: HttpErrorResponse) => {
-      const apiError: ApiError = httpErrResp.error;
-      this.notificationSvc.showAuthFailedMessage(apiError.mesaage);
-    });
+    var user: User = { userName: userName, password: password };
+    this.userService.signIn(user);
   }
 }

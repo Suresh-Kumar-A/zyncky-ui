@@ -31,13 +31,25 @@ export class NotificationService {
 
     showAuthSuccessMessage() {
         this.messageService.add({
-            severity: "success", summary: 'Sign In Successful...'
+            severity: "success", detail: 'Sign In Successful...'
         });
     }
 
     showAuthFailedMessage(message: string) {
         this.messageService.add({
             severity: "error", summary: 'Authentication Failed!!', detail: message
+        });
+    }
+
+    showAccountCreationSuccessMessage(userName: string) {
+        this.messageService.add({
+            severity: "success", detail: `User(${userName}) created successfully..`
+        });
+    }
+
+    showAccountCreationFailedMessage(message: string) {
+        this.messageService.add({
+            severity: "error", summary: 'User Creation Failed!!', detail: message
         });
     }
 }

@@ -15,6 +15,9 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { DashboardComponent } from "./pages/user/dashboard/dashboard.component";
 import { ToastModule } from "primeng/toast";
 import { MessageService } from "primeng/api";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NotificationService } from "./services/notification.service";
+import { StorageService } from "./services/storage.service";
 
 @NgModule({
   declarations: [
@@ -25,6 +28,7 @@ import { MessageService } from "primeng/api";
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     CardModule,
@@ -35,7 +39,7 @@ import { MessageService } from "primeng/api";
     ReactiveFormsModule,
     ToastModule,
   ],
-  providers: [BackendService, MessageService],
+  providers: [BackendService, MessageService, NotificationService, StorageService],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

@@ -21,10 +21,11 @@ export class LoginComponent {
     password: new FormControl(''),
   });
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private storageSvc: StorageService) { }
 
   ngOnInit(): void {
     this.loginFormGroup.reset();
+    this.storageSvc.clearJwtToken();
   }
 
   signIn() {

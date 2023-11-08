@@ -6,6 +6,7 @@ import { NotificationService } from "src/app/services/notification.service";
 import { StorageService } from "src/app/services/storage.service";
 import { User } from "../model/user.model";
 import { ApiError } from "../model/apierror.model";
+import * as jose from 'jose';
 
 @Injectable()
 export class UserService {
@@ -32,5 +33,12 @@ export class UserService {
             const apiError: ApiError = httpErrResp.error;
             this.notificationService.showAuthFailedMessage(apiError.mesaage);
         });
+    }
+
+    getLoggedInUsername() {
+        const token = this.storageService.getJwtToken();
+        const username = jose.decodeJwt(token)["username"];
+        console.log("LoggedInUsername: ", username);
+        return username;
     }
 }

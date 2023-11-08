@@ -23,4 +23,13 @@ export class StorageService {
     clearJwtToken() {
         localStorage.removeItem(this.JWT_TOKEN_KEY_NAME);
     }
+
+    doTokenExists(): boolean {
+        const token = localStorage.getItem(this.JWT_TOKEN_KEY_NAME);
+        if (token === null) {
+            return false;
+        } else {
+            return true;
+        }
+    }
 }

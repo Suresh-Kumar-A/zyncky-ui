@@ -26,14 +26,6 @@ export class SignupComponent {
     this.showPassword = !this.showPassword;
   }
 
-  // loadImgFrombackend() {
-  //   const url = "http://localhost:8080/api/test?option=3";
-  //   this.http.get(url, { responseType: "blob" }).subscribe((rawData) => {
-  //     console.log("Raw Data", rawData);
-  //     URL.createObjectURL(rawData);
-  //   });
-  // }
-
   createAccount() {
     const { userName, displayName, password } = this.createAccountFormGroup.value;
     var newUser: User = {

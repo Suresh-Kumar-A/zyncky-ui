@@ -1,1 +1,40 @@
-<p>signup works!</p>
+<div class="card-center">
+    <p-card [style]="{ width: '540px', padding: '1rem' }">
+        <ng-template pTemplate="header">
+            <div class="text-center pt-3">
+                <img alt="App_Icon" src="assets/images/app_logo_transparent.png" />
+                <div class="p-card-title">Create your account</div>
+                <div class="p-card-subtitle">Enter your details</div>
+            </div>
+        </ng-template>
+        <ng-template pTemplate="content">
+            <form action="#" [formGroup]="createAccountFormGroup">
+                <span class="p-float-label mb-3 p-input-icon-left w-full">
+                    <i class="pi pi-discord"></i>
+                    <input class="w-full" pInputText id="username" type="text" formControlName="userName" />
+                    <label htmlFor="username">Username</label>
+                </span>
+                <span class="p-float-label mb-3 p-input-icon-left w-full">
+                    <i class="pi pi-user"></i>
+                    <input class="w-full" pInputText id="display-name" type="text" formControlName="displayName" />
+                    <label htmlFor="display-name">Display Name</label>
+                </span>
+                <span class="p-float-label mb-5 p-input-icon-left p-input-icon-right w-full">
+                    <i class="pi pi-key"></i>
+                    <input class="w-full" pInputText id="password" formControlName="password"
+                        type="{{showPassword?'text':'password'}}" />
+                    <label htmlFor="password">Password</label>
+                    <i class="pi {{showPassword?'pi-eye-slash':'pi-eye'}}" (click)="togglePassword()"></i>
+                </span>
+                <button pButton pRipple label="Create Account" icon="pi pi-user-plus" class="w-full" (click)="createAccount()"></button>
+            </form>
+        </ng-template>
+        <ng-template pTemplate="footer">
+            <p-divider type="solid" align="center">
+                <p-tag severity="success" value="OR"></p-tag>
+            </p-divider>
+            <span>Already have an account?</span> 
+            <a [routerLink]="['/signin']" class="ml-1">Sign In</a>
+        </ng-template>
+    </p-card>
+</div>

@@ -4,7 +4,6 @@ import { HttpClientModule } from "@angular/common/http";
 import { BackendService } from "./services/backend.service";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
-import { CreateAccountComponent } from "./pages/create-account/create-account.component";
 import { CardModule } from "primeng/card";
 import { ButtonModule } from "primeng/button";
 import { ImageModule } from "primeng/image";
@@ -28,7 +27,6 @@ import { TagModule } from 'primeng/tag';
 @NgModule({
   declarations: [
     AppComponent,
-    CreateAccountComponent,
     DashboardComponent,
     SidebarComponent,
     HeaderComponent,

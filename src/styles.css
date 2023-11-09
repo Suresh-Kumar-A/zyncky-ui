@@ -14,6 +14,7 @@
   --app-accent-dark-color: #a00332;
   --app-extra-color: #7c287c;
   --app-font-family: Helvetica !important;
+  --app-sidebar-width: 250px;
 }
 
 html {
@@ -38,4 +39,31 @@ input {
 
 .p-divider-solid.p-divider-horizontal:before {
   border-top-style: solid !important;
+}
+
+.layout-sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background-color: #ffffff;
+  width: var(--app-sidebar-width);
+  user-select: none;
+  transition: transform 0.4s cubic-bezier(0.05, 0.74, 0.2, 0.99);
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0;
+}
+
+.layout-sidebar > nav {
+  padding: 0.5rem 1rem 2rem 1rem;
+  margin-top: 0.5rem;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.layout-sidebar > nav > .layout-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }

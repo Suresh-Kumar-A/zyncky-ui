@@ -1,1 +1,27 @@
-<p>sidebar works!</p>
+<aside class="layout-sidebar">
+    <a [routerLink]="['/']" class="text-center">
+        <img alt="App_Icon" src="assets/images/app_logo_transparent.png" />
+    </a>
+    <nav>
+        <ol class="layout-menu">
+            <li>
+                <button pButton type="button" class="px-link" pStyleClass="@next" enterClass="hidden" enterActiveClass="slidedown" leaveToClass="hidden" leaveActiveClass="slideup">
+                    <div class="menu-icon">
+                        <i class="pi pi-search"></i>
+                    </div>
+                    <span>Search</span>
+                    <i class="menu-toggle-icon pi pi-angle-down"></i>
+                </button>
+            </li>
+            <li>
+                upload
+            </li>
+            <li>
+                
+            </li>
+            <li>
+                
+            </li>
+        </ol>
+    </nav>
+</aside>

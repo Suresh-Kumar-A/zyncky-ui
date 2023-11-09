@@ -19,6 +19,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NotificationService } from "./services/notification.service";
 import { StorageService } from "./services/storage.service";
 import { UserService } from "./services/user.service";
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { UserService } from "./services/user.service";
     CreateAccountComponent,
     LoginComponent,
     DashboardComponent,
+    SidebarComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,

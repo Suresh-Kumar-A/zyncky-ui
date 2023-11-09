@@ -1,7 +1,12 @@
+:host {
+  display: block;
+  height: 100%;
+}
+
 .card-center {
   display: grid !important;
   place-content: center;
-  padding-top: 4rem !important;
+  height: 100%;
 }
 
 img {

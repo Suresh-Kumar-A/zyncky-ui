@@ -1,4 +1,4 @@
-import { HttpClient, HttpErrorResponse } from "@angular/common/http";
+import { HttpErrorResponse } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { BackendService } from "src/app/services/backend.service";
@@ -40,5 +40,16 @@ export class UserService {
         const username = jose.decodeJwt(token)["username"];
         console.log("LoggedInUsername: ", username);
         return username;
+    }
+
+    isUserLoggenIn() {
+        return this.storageService.doTokenExists();
+    }
+
+    checkUserSessionAndRedirect() {
+        if (this.isUserLoggenIn()) {
+            this.notificationService.showInfoMessage('User Session Exists!! Redirecting...');
+            this.router.navigateByUrl("/user/dashboard");
+        }
     }
 }

@@ -16,6 +16,10 @@
   --app-font-family: Helvetica !important;
 }
 
+html {
+  display: block;
+}
+
 html,
 body {
   margin: 0% !important;
@@ -25,12 +29,13 @@ body {
   width: 100% !important;
   font-family: var(--app-font-family);
   background-color: var(--app-background-color);
+  display: block;
 }
 
-input{
-    height: 46px !important;
+input {
+  height: 46px !important;
 }
 
-.p-divider-solid.p-divider-horizontal:before{
-    border-top-style: solid !important;
+.p-divider-solid.p-divider-horizontal:before {
+  border-top-style: solid !important;
 }

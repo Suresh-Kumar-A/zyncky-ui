@@ -17,9 +17,12 @@ export class SigninComponent {
 
   showPassword = false;
 
-  constructor(private userService: UserService, private storageSvc: StorageService) { }
+  constructor(private userService: UserService, private storageSvc: StorageService) {
+    this.userService.checkUserSessionAndRedirect();
+  }
 
   ngOnInit(): void {
+    this.userService.checkUserSessionAndRedirect();
     this.loginFormGroup.reset();
     this.storageSvc.clearJwtToken();
   }

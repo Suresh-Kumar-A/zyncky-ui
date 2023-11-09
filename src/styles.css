@@ -1,10 +1,36 @@
-/* You can add global styles to this file, and also import other style files */
-@import 'assets/theme.css';
-
+/* PrimeNG | CSS */
 @import "primeng/resources/primeng.css";
+/* PrimeNG Icons | CSS */
 @import "primeicons/primeicons.css";
+/* PrimeNG | PrimeFlex | CSS */
+@import "primeflex/primeflex.css";
 
-html, body{
-    font-family: Helvetica;
-    background-color: #eff3f8;
+:root {
+  --app-background-color: #eaf7ee;
+  --app-primary-color: #56558b;
+  --app-primary-mid-dark-color: #474672;
+  --app-primary-dark-color: #373659;
+  --app-accent-color: #c8043f;
+  --app-accent-dark-color: #a00332;
+  --app-extra-color: #7c287c;
+  --app-font-family: Helvetica !important;
+}
+
+html,
+body {
+  margin: 0% !important;
+  padding: 0% !important;
+  height: 100% !important;
+  min-height: 100% !important;
+  width: 100% !important;
+  font-family: var(--app-font-family);
+  background-color: var(--app-background-color);
+}
+
+input{
+    height: 46px !important;
+}
+
+.p-divider-solid.p-divider-horizontal:before{
+    border-top-style: solid !important;
 }

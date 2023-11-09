@@ -10,7 +10,6 @@ import { ButtonModule } from "primeng/button";
 import { ImageModule } from "primeng/image";
 import { CheckboxModule } from "primeng/checkbox";
 import { InputTextModule } from "primeng/inputtext";
-import { LoginComponent } from "./pages/login/login.component";
 import { ReactiveFormsModule } from "@angular/forms";
 import { DashboardComponent } from "./pages/user/dashboard/dashboard.component";
 import { ToastModule } from "primeng/toast";
@@ -21,15 +20,20 @@ import { StorageService } from "./services/storage.service";
 import { UserService } from "./services/user.service";
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { HeaderComponent } from './components/header/header.component';
+import { SignupComponent } from './pages/signup/signup.component';
+import { SigninComponent } from './pages/signin/signin.component';
+import { DividerModule } from 'primeng/divider';
+import { TagModule } from 'primeng/tag';
 
 @NgModule({
   declarations: [
     AppComponent,
     CreateAccountComponent,
-    LoginComponent,
     DashboardComponent,
     SidebarComponent,
     HeaderComponent,
+    SignupComponent,
+    SigninComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,6 +47,8 @@ import { HeaderComponent } from './components/header/header.component';
     InputTextModule,
     ReactiveFormsModule,
     ToastModule,
+    DividerModule,
+    TagModule
   ],
   providers: [BackendService, MessageService, NotificationService, StorageService, UserService],
   bootstrap: [AppComponent],

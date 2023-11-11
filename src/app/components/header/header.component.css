@@ -1,0 +1,6 @@
+.quick-actions {
+  display: flex;
+  justify-content: space-between;
+  /* width: 10rem !important; */
+  width: 12rem !important;
+}

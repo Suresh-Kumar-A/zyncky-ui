@@ -1,26 +1,23 @@
-<aside class="layout-sidebar">
-    <a [routerLink]="['/']" class="text-center">
+<aside app-sidebar class="layout-sidebar pt-1">
+    <a [routerLink]="['/']" class="logo">
         <img alt="App_Icon" src="assets/images/app_logo_transparent.png" />
     </a>
     <nav>
         <ol class="layout-menu">
             <li>
-                <button pButton type="button" class="px-link" pStyleClass="@next" enterClass="hidden" enterActiveClass="slidedown" leaveToClass="hidden" leaveActiveClass="slideup">
-                    <div class="menu-icon">
-                        <i class="pi pi-search"></i>
-                    </div>
-                    <span>Search</span>
-                    <i class="menu-toggle-icon pi pi-angle-down"></i>
+                <button pButton pRipple label="Upload" icon="pi pi-upload" class="w-full">
+
                 </button>
             </li>
             <li>
-                upload
+                <button pButton pRipple label="Search" icon="pi pi-search" 
+                class="w-full p-button-text app-extra-color">
+                </button>
             </li>
             <li>
-                
-            </li>
-            <li>
-                
+                <button pButton pRipple label="Settings" text="true" icon="pi pi-cog"
+                    class="w-full p-button-text app-extra-color">
+                </button>
             </li>
         </ol>
     </nav>

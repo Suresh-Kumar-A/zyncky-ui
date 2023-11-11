@@ -23,6 +23,11 @@ import { SignupComponent } from './pages/signup/signup.component';
 import { SigninComponent } from './pages/signin/signin.component';
 import { DividerModule } from 'primeng/divider';
 import { TagModule } from 'primeng/tag';
+import { MenubarModule } from 'primeng/menubar';
+import { AvatarModule } from 'primeng/avatar';
+import { AvatarGroupModule } from 'primeng/avatargroup';
+import { MenuModule } from 'primeng/menu';
+import { BreadcrumbModule } from 'primeng/breadcrumb';
 
 @NgModule({
   declarations: [
@@ -46,7 +51,12 @@ import { TagModule } from 'primeng/tag';
     ReactiveFormsModule,
     ToastModule,
     DividerModule,
-    TagModule
+    TagModule,
+    MenubarModule,
+    AvatarModule,
+    AvatarGroupModule,
+    BreadcrumbModule,
+    MenuModule
   ],
   providers: [BackendService, MessageService, NotificationService, StorageService, UserService],
   bootstrap: [AppComponent],

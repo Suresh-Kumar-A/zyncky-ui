@@ -24,16 +24,18 @@
                     <input class="w-full" pInputText id="password" formControlName="password"
                         type="{{showPassword?'text':'password'}}" />
                     <label htmlFor="password">Password</label>
-                    <i class="pi {{showPassword?'pi-eye-slash':'pi-eye'}}" (click)="togglePassword()"></i>
+                    <i class="pi {{showPassword?'pi-eye-slash':'pi-eye'}}" (click)="togglePassword()"
+                        pTooltip="click to toggle the password view"></i>
                 </span>
-                <button pButton pRipple label="Create Account" icon="pi pi-user-plus" class="w-full" (click)="createAccount()"></button>
+                <button pButton pRipple label="Create Account" icon="pi pi-user-plus" class="w-full"
+                    (click)="createAccount()"></button>
             </form>
         </ng-template>
         <ng-template pTemplate="footer">
             <p-divider type="solid" align="center">
                 <p-tag severity="success" value="OR"></p-tag>
             </p-divider>
-            <span>Already have an account?</span> 
+            <span>Already have an account?</span>
             <a [routerLink]="['/signin']" class="ml-1">Sign In</a>
         </ng-template>
     </p-card>

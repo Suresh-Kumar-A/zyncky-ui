@@ -1,3 +1,25 @@
 <app-sidebar></app-sidebar>
 <app-header></app-header>
-<div class="layout-content"></div>
+<div class="layout-content">
+    <p-card header="Advanced Card" subheader="Card Subheader" [style]="{ width: '360px' }">
+        <ng-template pTemplate="header">
+            <img alt="Card" src="https://primefaces.org/cdn/primeng/images/usercard.png" />
+        </ng-template>
+        <div class="card flex justify-content-center gap-2">
+            <p-tag value="Primary"></p-tag>
+            <p-tag severity="success" value="Success"></p-tag>
+            <p-tag severity="info" value="Info"></p-tag>
+            <p-tag severity="warning" value="Warning"></p-tag>
+            <p-tag severity="danger" value="Danger"></p-tag>
+        </div>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae
+            numquam
+        </p>
+        <ng-template pTemplate="footer">
+            <p-button label="Save" icon="pi pi-check"></p-button>
+            <p-button label="Cancel" icon="pi pi-times" styleClass="p-button-secondary"
+                [style]="{ 'margin-left': '.5em' }"></p-button>
+        </ng-template>
+    </p-card>
+</div>

@@ -1,1 +1,30 @@
-<p>header works!</p>
+<div class="layout-header">
+    <div class="header-content">
+        <div class="user-profile">
+            <p-menu #menu [model]="items" [popup]="true"></p-menu>
+            <button pButton type="button" (click)="menu.toggle($event)" icon="pi pi-bars" label="Show"></button>
+        </div>
+
+        <div class="quick-actions">
+            <!-- <a href="#" target="_blank" class="menu-icon">
+                <i class="pi pi-cog text-700"></i>
+            </a> -->
+            <button type="button" class="menu-icon hover:border-primary" (click)="sample()">
+                <i class="pi pi-bell text-700"></i>
+            </button>
+            <button type="button" class="menu-icon hover:border-primary" style="background-color: #56558b;">
+                <i class="pi pi-search text-white"></i>
+            </button>
+            <button type="button" class="menu-icon hover:border-primary">
+                <i class="pi pi-comments text-700"></i>
+            </button>
+            <button type="button" class="menu-icon hover:border-primary">
+                <i class="pi pi-user text-700"></i>
+            </button>
+            <button type="button" class="menu-icon hover:border-primary" style="background-color: #c8043f;">
+                <i class="pi pi-sign-out text-white"></i>
+            </button>
+        </div>
+        <!-- <p-avatar icon="pi pi-user" styleClass="mr-2"></p-avatar> -->
+    </div>
+</div>

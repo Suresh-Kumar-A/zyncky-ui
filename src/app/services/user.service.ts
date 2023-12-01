@@ -35,13 +35,13 @@ export class UserService {
         });
     }
 
-    logout() {
+    logout(): void {
         this.notificationService.showInfoMessage('Logging out...');
         this.storageService.clearJwtToken();
         this.router.navigateByUrl("/login");
     }
 
-    getUsername() {
+    getUsername(): any {
         const token = this.storageService.getJwtToken();
         const username = jose.decodeJwt(token)["username"];
         return username;

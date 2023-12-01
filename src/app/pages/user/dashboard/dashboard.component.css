@@ -2,3 +2,13 @@
   display: block;
   height: 100%;
 }
+
+.layout-content{
+  position: relative;
+  left: var(--app-sidebar-width);
+  background-color: var(--app-background-color);
+  width: calc(100% - var(--app-sidebar-width));
+  top: var(--app-header-height);
+  height: calc(100% - var(--app-header-height));
+  padding: 1rem;
+}

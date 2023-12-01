@@ -15,7 +15,7 @@
   --app-extra-color: #7c287c;
   --app-font-family: Inter, sans-serif !important;
   --app-sidebar-width: 230px;
-  --app-header-height: 5rem;
+  --app-header-height: 4rem;
 }
 
 html {
@@ -40,48 +40,6 @@ input {
 
 .p-divider-solid.p-divider-horizontal:before {
   border-top-style: solid !important;
-}
-
-.layout-sidebar > nav {
-  padding: 0.5rem 1rem 2rem 1rem;
-  margin-top: 0.5rem;
-  flex-grow: 1;
-  overflow-y: auto;
-}
-
-.layout-sidebar > nav > .layout-menu {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.layout-header {
-  background-color: var(--app-background-color);
-  padding: 0;
-  height: var(--app-header-height);
-  position: fixed;
-  top: 0;
-  left: var(--app-sidebar-width);
-  /* margin-left: var(--app-sidebar-width); */
-  width: calc(100% - var(--app-sidebar-width));
-}
-
-.header-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  /* justify-content: flex-end; */
-  padding: 0 4rem;
-  height: 100%;
-  width: calc(100% - var(--scrollbar-width, 0px));
-}
-
-.layout-content {
-  margin-left: var(--app-sidebar-width);
-  background-color: var(--app-background-color);
-  width: calc(100% - var(--app-sidebar-width));
-  margin-top: var(--app-header-height);
-  height: calc(100% - var(--app-header-height));
 }
 
 .menu-icon {

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { User } from 'src/app/model/user.model';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -14,14 +16,13 @@ export class LoginComponent {
 
   showPassword = false;
 
-  constructor() {
-    // this.userService.checkUserSessionAndRedirect();
+  constructor(private userService: UserService) {
+    this.userService.checkUserSessionAndRedirect();
   }
 
   ngOnInit(): void {
-    // this.userService.checkUserSessionAndRedirect();
+    this.userService.checkUserSessionAndRedirect();
     this.loginFormGroup.reset();
-    // this.storageSvc.clearJwtToken();
   }
 
   togglePassword() {
@@ -29,8 +30,8 @@ export class LoginComponent {
   }
 
   LogIn() {
-    // const { userName, password } = this.loginFormGroup.value;
-    // var user: User = { userName: userName, password: password };
-    // this.userService.signIn(user);
+    const { userName, password } = this.loginFormGroup.value;
+    var user: User = { userName: userName, password: password };
+    this.userService.LogIn(user);
   }
 }

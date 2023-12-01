@@ -24,7 +24,7 @@ export class UserService {
         });
     }
 
-    signIn(user: User) {
+    LogIn(user: User) {
         this.backendService.loginUser(user).subscribe((response) => {
             this.notificationService.showAuthSuccessMessage();
             this.storageService.saveJwtToken(response);
@@ -35,15 +35,26 @@ export class UserService {
         });
     }
 
-    getLoggedInUsername() {
+    getUsername() {
         const token = this.storageService.getJwtToken();
         const username = jose.decodeJwt(token)["username"];
-        console.log("LoggedInUsername: ", username);
         return username;
     }
 
     isUserLoggenIn() {
         return this.storageService.doTokenExists();
+    }
+
+    getUserUid() {
+        const token = this.storageService.getJwtToken();
+        const uid = jose.decodeJwt(token)["uid"];
+        return uid;
+    }
+
+    getUserRole() {
+        const token = this.storageService.getJwtToken();
+        const role = jose.decodeJwt(token)["role"];
+        return role;
     }
 
     checkUserSessionAndRedirect() {

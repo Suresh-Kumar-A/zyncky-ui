@@ -1,13 +1,18 @@
 import { Injectable } from "@angular/core";
+import { NotificationService } from "./notification.service";
 
 @Injectable()
 export class StorageService {
 
     private JWT_TOKEN_KEY_NAME = 'token';
 
+    constructor(private notificationService: NotificationService) { }
+
     saveJwtToken(response: any) {
         if (!response || !response.token) {
-            throw new Error("Invalid/Missing JWT Token in response");
+            const message = 'Invalid/Missing JWT Token in response';
+            this.notificationService.showErrorMessage(message)
+            throw new Error(message);
         }
         localStorage.setItem(this.JWT_TOKEN_KEY_NAME, response.token)
     }
@@ -15,7 +20,9 @@ export class StorageService {
     getJwtToken() {
         const token = localStorage.getItem(this.JWT_TOKEN_KEY_NAME);
         if (token === null) {
-            throw new Error("Missing JWT Token in Storage. User may not be authenticated.");
+            const message = 'Missing JWT Token in Session Storage. User may not be authenticated.';
+            this.notificationService.showErrorMessage(message)
+            throw new Error(message);
         }
         return token;
     }
@@ -26,7 +33,7 @@ export class StorageService {
 
     doTokenExists(): boolean {
         const token = localStorage.getItem(this.JWT_TOKEN_KEY_NAME);
-        if (token === null) {
+        if (token == null) {
             return false;
         } else {
             return true;

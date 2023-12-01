@@ -1,25 +1,41 @@
-<aside app-sidebar class="layout-sidebar pt-1">
-    <a [routerLink]="['/']" class="logo">
-        <img alt="App_Icon" src="assets/test/icon-left-transparent.svg" />
+<aside class="sidebar flex flex-column gap-1 p-2 justify-content-between">
+    <a [routerLink]="['/user/dashboard']" class="mx-auto my-2">
+        <img alt="Zyncky App Logo" src="assets/images/app_logo_transparent.svg" class="w-9rem" />
     </a>
-    <nav>
-        <ol class="layout-menu">
+    <nav class="p-o flex flex-column h-full">
+        <ol class="list-none p-0 flex flex-column gap-1 mx-3 mb-0">
             <li>
-                <button pButton pRipple label="Upload" icon="pi pi-upload" class="w-full">
-
-                </button>
-                <p-button label="Primary" [outlined]="true"></p-button>
+                <button pButton pRipple label="Upload" icon="pi pi-upload" class="w-full text-left"></button>
             </li>
             <li>
-                <button pButton pRipple label="Search" icon="pi pi-search" 
-                class="w-full p-button-text app-extra-color">
-                </button>
+                <button pButton pRipple label="Search" icon="pi pi-search"
+                    class="p-button-text w-full hover:border-700 border-1 p-button-plain font-semibold text-left"></button>
             </li>
             <li>
-                <button pButton pRipple label="Settings" text="true" icon="pi pi-cog"
-                    class="w-full p-button-text app-extra-color">
-                </button>
+                <button pButton pRipple label="Settings" icon="pi pi-cog"
+                    class="p-button-text w-full hover:border-700 border-1 p-button-plain font-semibold text-left"></button>
             </li>
         </ol>
+        <p-divider type="solid"></p-divider>
+        <ol  class="list-none p-0 flex flex-column gap-1 mx-3 my-0">
+            <li>
+                <button pButton pRipple label="Recent" icon="pi pi-clock"
+                    class="p-button-text w-full hover:border-700 border-1 p-button-plain font-semibold text-left"></button>
+            </li>
+            <li>
+                <button pButton pRipple label="Shared With Me" icon="pi pi-users"
+                    class="p-button-text w-full hover:border-700 border-1 p-button-plain font-semibold text-left"></button>
+            </li>
+        </ol>
+        <p-divider type="solid"></p-divider>
+        <ol  class="list-none p-0 flex flex-column gap-1 mx-3 mt-0">
+            <li>
+                <button pButton pRipple label="Recycle Bin" icon="pi pi-trash"
+                    class="p-button-text w-full hover:border-700 border-1 p-button-plain font-semibold text-left"></button>
+            </li>
+        </ol>
+
     </nav>
+    <button pButton pRipple label="Log out" icon="pi pi-sign-out"
+        class="mx-3 p-button-secondary p-button-text p-button-outlined font-semibold"></button>
 </aside>

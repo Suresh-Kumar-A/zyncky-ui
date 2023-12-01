@@ -1,31 +1,7 @@
-.logo {
-  display: flex;
-  justify-content: center;
-}
-
-img {
-  height: 55px !important;
-  width: 200px !important;
-}
-
-li {
-  margin-bottom: 1rem;
-}
-
-/* .p-divider-horizontal.p-divider-left {
-  justify-content: flex-start;
-}
-.p-divider.p-divider-horizontal {
-  margin: 1.25rem 0;
-  padding: 0 1.25rem;
-}
-.p-divider-horizontal {
-  display: flex;
-  width: 100%;
-  position: relative;
-  align-items: center;
-} */
-
-.app-extra-color {
-  color: var(--app-extra-color) !important;
+.sidebar {
+  width: var(--app-sidebar-width);
+  background-color: white;
+  height: 100%;
+  position: fixed;
+  top: 0;
 }

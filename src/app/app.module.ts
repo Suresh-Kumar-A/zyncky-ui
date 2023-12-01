@@ -29,6 +29,7 @@ import { AvatarModule } from 'primeng/avatar';
 import { AvatarGroupModule } from 'primeng/avatargroup';
 import { MenuModule } from 'primeng/menu';
 import { BreadcrumbModule } from 'primeng/breadcrumb';
+import { RippleModule } from "primeng/ripple";
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { BreadcrumbModule } from 'primeng/breadcrumb';
     AvatarModule,
     AvatarGroupModule,
     BreadcrumbModule,
-    MenuModule
+    MenuModule,
+    RippleModule
   ],
   providers: [BackendService, NotificationService, StorageService, UserService],
   bootstrap: [AppComponent],

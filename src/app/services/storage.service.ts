@@ -27,7 +27,7 @@ export class StorageService {
     doTokenExists(): boolean {
         const token = localStorage.getItem(this.JWT_TOKEN_KEY_NAME);
         if (token === null) {
-            return true;
+            return false;
         } else {
             return true;
         }

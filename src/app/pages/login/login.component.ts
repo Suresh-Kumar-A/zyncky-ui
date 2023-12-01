@@ -32,6 +32,6 @@ export class LoginComponent {
   LogIn() {
     const { userName, password } = this.loginFormGroup.value;
     var user: User = { userName: userName, password: password };
-    this.userService.LogIn(user);
+    this.userService.logIn(user);
   }
 }

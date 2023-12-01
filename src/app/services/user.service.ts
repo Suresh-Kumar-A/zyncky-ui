@@ -24,7 +24,7 @@ export class UserService {
         });
     }
 
-    LogIn(user: User) {
+    logIn(user: User) {
         this.backendService.loginUser(user).subscribe((response) => {
             this.notificationService.showAuthSuccessMessage();
             this.storageService.saveJwtToken(response);
@@ -33,6 +33,12 @@ export class UserService {
             const apiError: ApiError = httpErrResp.error;
             this.notificationService.showAuthFailedMessage(apiError.mesaage);
         });
+    }
+
+    logout() {
+        this.notificationService.showInfoMessage('Logging out...');
+        this.storageService.clearJwtToken();
+        this.router.navigateByUrl("/login");
     }
 
     getUsername() {

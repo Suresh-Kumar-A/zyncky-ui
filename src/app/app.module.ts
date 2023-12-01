@@ -19,8 +19,6 @@ import { StorageService } from "./services/storage.service";
 import { UserService } from "./services/user.service";
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { HeaderComponent } from './components/header/header.component';
-import { SignupComponent } from './pages/signup/signup.component';
-import { SigninComponent } from './pages/signin/signin.component';
 import { DividerModule } from 'primeng/divider';
 import { TagModule } from 'primeng/tag';
 import { MenubarModule } from 'primeng/menubar';
@@ -28,6 +26,8 @@ import { AvatarModule } from 'primeng/avatar';
 import { AvatarGroupModule } from 'primeng/avatargroup';
 import { MenuModule } from 'primeng/menu';
 import { BreadcrumbModule } from 'primeng/breadcrumb';
+import { LoginComponent } from './pages/login/login.component';
+import { CreateAccountComponent } from './pages/create-account/create-account.component';
 
 @NgModule({
   declarations: [
@@ -35,8 +35,8 @@ import { BreadcrumbModule } from 'primeng/breadcrumb';
     DashboardComponent,
     SidebarComponent,
     HeaderComponent,
-    SignupComponent,
-    SigninComponent,
+    LoginComponent,
+    CreateAccountComponent,
   ],
   imports: [
     BrowserModule,

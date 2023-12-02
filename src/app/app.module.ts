@@ -10,7 +10,6 @@ import { ImageModule } from "primeng/image";
 import { CheckboxModule } from "primeng/checkbox";
 import { InputTextModule } from "primeng/inputtext";
 import { ReactiveFormsModule } from "@angular/forms";
-import { DashboardComponent } from "./pages/user/dashboard/dashboard.component";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { NotificationService } from "./services/notification.service";
@@ -33,15 +32,26 @@ import { RippleModule } from "primeng/ripple";
 import { ProgressBarModule } from 'primeng/progressbar';
 // For dynamic progressbar demo
 import { ToastModule } from 'primeng/toast';
+import { UserComponent } from './pages/user/user.component';
+import { MyFilesComponent } from './pages/user/my-files/my-files.component';
+import { RecentComponent } from './pages/user/recent/recent.component';
+import { SharedComponent } from './pages/user/shared/shared.component';
+import { SettingsComponent } from './pages/user/settings/settings.component';
+import { RecycleBinComponent } from './pages/user/recycle-bin/recycle-bin.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent,
     SidebarComponent,
     HeaderComponent,
     LoginComponent,
     CreateAccountComponent,
+    UserComponent,
+    MyFilesComponent,
+    RecentComponent,
+    SharedComponent,
+    SettingsComponent,
+    RecycleBinComponent,
   ],
   imports: [
     BrowserModule,

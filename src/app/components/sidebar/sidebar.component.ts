@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -8,6 +8,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class SidebarComponent {
 
+  @Input() childName = 'my-files';
   activeItem = true;
 
   constructor(private userService: UserService) { }

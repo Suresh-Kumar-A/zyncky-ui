@@ -5,25 +5,29 @@
     <nav class="p-o flex flex-column h-full">
         <ol class="list-none p-0 flex flex-column gap-1 mx-3 mb-0">
             <li>
-                <button pButton pRipple label="My Files" icon="pi pi-folder"
+                <a [routerLink]="['/user/my-files']" pButton pRipple label="My Files" icon="pi pi-folder"
                     class="p-button-text w-full hover:border-700 border-1 p-button-plain font-semibold text-left"
-                    [ngClass]="{'border-700 border-left-3':activeItem}"></button>
+                    [ngClass]="{'border-700 border-left-3':(childName=='my-files')}"></a>
             </li>
             <li>
-                <button pButton pRipple label="Recent" icon="pi pi-clock"
-                    class="p-button-text w-full hover:border-700 border-1 p-button-plain font-semibold text-left"></button>
+                <a [routerLink]="['/user/recent']" pButton pRipple label="Recent" icon="pi pi-clock"
+                    class="p-button-text w-full hover:border-700 border-1 p-button-plain font-semibold text-left"
+                    [ngClass]="{'border-700 border-left-3':(childName=='recent')}"></a>
             </li>
             <li>
-                <button pButton pRipple label="Shared" icon="pi pi-users"
-                    class="p-button-text w-full hover:border-700 border-1 p-button-plain font-semibold text-left"></button>
+                <a [routerLink]="['/user/shared']" pButton pRipple label="Shared" icon="pi pi-users"
+                    class="p-button-text w-full hover:border-700 border-1 p-button-plain font-semibold text-left"
+                    [ngClass]="{'border-700 border-left-3':(childName=='shared')}"></a>
             </li>
             <li>
-                <button pButton pRipple label="Settings" icon="pi pi-cog"
-                    class="p-button-text w-full hover:border-700 border-1 p-button-plain font-semibold text-left"></button>
+                <a [routerLink]="['/user/settings']" pButton pRipple label="Settings" icon="pi pi-cog"
+                    class="p-button-text w-full hover:border-700 border-1 p-button-plain font-semibold text-left"
+                    [ngClass]="{'border-700 border-left-3':(childName=='settings')}"></a>
             </li>
             <li>
-                <button pButton pRipple label="Recycle Bin" icon="pi pi-trash"
-                    class="p-button-text w-full hover:border-700 border-1 p-button-plain font-semibold text-left"></button>
+                <a [routerLink]="['/user/recycle-bin']" pButton pRipple label="Recycle Bin" icon="pi pi-trash"
+                    class="p-button-text w-full hover:border-700 border-1 p-button-plain font-semibold text-left"
+                    [ngClass]="{'border-700 border-left-3':(childName=='recycle-bin')}"></a>
             </li>
         </ol>
         <p-divider type="solid"></p-divider>

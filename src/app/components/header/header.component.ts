@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 
 @Component({
@@ -7,8 +7,11 @@ import { MenuItem } from 'primeng/api';
     styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
+
+    @Input() childName = 'my-files';
     items: MenuItem[] | undefined;
     showGridView = false;
+    loadingItems = true;
 
     sample() {
         alert('you clicked');
@@ -51,6 +54,13 @@ export class HeaderComponent {
                 ]
             }
         ];
+        this.loadItems();
+    }
 
+    loadItems() {
+        this.loadingItems = true;
+        setTimeout(() => {
+            this.loadingItems = false;
+        }, 1500);
     }
 }

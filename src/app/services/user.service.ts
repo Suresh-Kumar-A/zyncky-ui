@@ -28,7 +28,7 @@ export class UserService {
         this.backendService.loginUser(user).subscribe((response) => {
             this.notificationService.showAuthSuccessMessage();
             this.storageService.saveJwtToken(response);
-            this.router.navigateByUrl("/user/dashboard");
+            this.router.navigateByUrl("/user/my-files");
         }, (httpErrResp: HttpErrorResponse) => {
             const apiError: ApiError = httpErrResp.error;
             this.notificationService.showAuthFailedMessage(apiError.mesaage);
@@ -66,7 +66,7 @@ export class UserService {
     checkUserSessionAndRedirect() {
         if (this.isUserLoggenIn()) {
             this.notificationService.showInfoMessage('User Session Exists!! Redirecting...');
-            this.router.navigateByUrl("/user/dashboard");
+            this.router.navigateByUrl("/user/my-files");
         }
     }
 }

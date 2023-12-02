@@ -7,19 +7,24 @@
         </span>
     </div>
     <div class="flex gap-6 mx-3 align-items-center">
-        <span class="p-buttonset">
+        <span class="p-buttonset" *ngIf="childName=='my-files'">
             <button pButton pRipple [class.p-button-outlined]="showGridView" label="List" icon="pi pi-list"
                 (click)="showGridView=false;" class="p-button-sm h-2rem"></button>
             <button pButton pRipple [class.p-button-outlined]="!showGridView" label="Grid" icon="pi pi-th-large"
                 (click)="showGridView=true;" class="p-button-sm h-2rem"></button>
         </span>
         <div class="flex gap-2 align-items-center">
-            <button pButton pRipple icon="pi pi-sync"
-                class="p-button-text border-700 border-1 w-2rem h-2rem p-button-plain"></button>
+            <button pButton pRipple
+                class="p-button-text border-700 border-1 w-2rem h-2rem p-button-plain p-button-icon-only"
+                (click)="loadItems()">
+                <i class="pi pi-sync" [class.pi-spin]="loadingItems"></i>
+            </button>
             <button pButton pRipple icon="pi pi-link"
                 class="p-button-text border-700 border-1 w-2rem h-2rem p-button-plain"></button>
-            <button pButton pRipple label="Upload" icon="pi pi-upload" class="h-2rem"></button>
-            <button pButton pRipple label="Share" icon="pi pi-share-alt" class="p-button-outlined h-2rem"></button>
+            <button *ngIf="childName=='my-files'" pButton pRipple label="Upload" icon="pi pi-upload"
+                class="h-2rem"></button>
+            <button *ngIf="childName=='my-files'" pButton pRipple label="Share" icon="pi pi-share-alt"
+                class="p-button-outlined h-2rem"></button>
         </div>
         <button pButton pRipple label="Suresh Kumar" class="p-button-text font-semibold py-0 pl-0 pr-2">
             <p-avatar image="/assets/images/avatar_blue_bear.png" styleClass="mr-2" shape="circle"></p-avatar>

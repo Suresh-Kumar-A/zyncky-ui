@@ -5,3 +5,7 @@
   position: fixed;
   top: 0;
 }
+
+li > a {
+  text-decoration: none;
+}

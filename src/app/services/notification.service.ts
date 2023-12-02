@@ -1,55 +1,153 @@
-import { Injectable, NgModule } from "@angular/core";
-import { MessageService } from "primeng/api";
+import { Injectable, NgModule, inject } from "@angular/core";
+import Swal from 'sweetalert2'
 
 @Injectable()
 export class NotificationService {
-    constructor(private messageService: MessageService) { }
+    constructor() { }
 
     showSuccessMessage(message: string, title?: string) {
-        this.messageService.add({
-            severity: "success", summary: title, detail: message,
+        Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.onmouseenter = Swal.stopTimer;
+                toast.onmouseleave = Swal.resumeTimer;
+            }
+        }).fire({
+            icon: "success",
+            title: title,
+            text: message
         });
     }
 
     showInfoMessage(message: string, title?: string) {
-        this.messageService.add({
-            severity: "info", summary: title, detail: message,
+        Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.onmouseenter = Swal.stopTimer;
+                toast.onmouseleave = Swal.resumeTimer;
+            }
+        }).fire({
+            icon: "info",
+            title: title,
+            text: message
         });
     }
 
     showWarningMessage(message: string, title?: string) {
-        this.messageService.add({
-            severity: "warn", summary: title, detail: message,
+        Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.onmouseenter = Swal.stopTimer;
+                toast.onmouseleave = Swal.resumeTimer;
+            }
+        }).fire({
+            icon: "warning",
+            title: title,
+            text: message
         });
     }
 
     showErrorMessage(message: string, title?: string) {
-        this.messageService.add({
-            severity: "error", summary: title, detail: message,
+        Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.onmouseenter = Swal.stopTimer;
+                toast.onmouseleave = Swal.resumeTimer;
+            }
+        }).fire({
+            icon: "error",
+            title: title,
+            text: message
         });
     }
 
     showAuthSuccessMessage() {
-        this.messageService.add({
-            severity: "success", detail: 'Sign In Successful...'
+        Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.onmouseenter = Swal.stopTimer;
+                toast.onmouseleave = Swal.resumeTimer;
+            }
+        }).fire({
+            icon: "success",
+            title: "Sign In Successful..."
         });
     }
 
     showAuthFailedMessage(message: string) {
-        this.messageService.add({
-            severity: "error", summary: 'Authentication Failed!!', detail: message
+        if (message == null || message == undefined || message.trim().length == 0) {
+            message = 'Unknown Server Error';
+        }
+        Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.onmouseenter = Swal.stopTimer;
+                toast.onmouseleave = Swal.resumeTimer;
+            }
+        }).fire({
+            icon: "error",
+            title: message
         });
     }
 
     showAccountCreationSuccessMessage(userName: string) {
-        this.messageService.add({
-            severity: "success", detail: `User(${userName}) created successfully..`
+        Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.onmouseenter = Swal.stopTimer;
+                toast.onmouseleave = Swal.resumeTimer;
+            }
+        }).fire({
+            icon: "success",
+            title: `User(${userName}) created successfully..`,
         });
     }
 
     showAccountCreationFailedMessage(message: string) {
-        this.messageService.add({
-            severity: "error", summary: 'User Creation Failed!!', detail: message
+        if (message == null || message == undefined || message.trim().length == 0) {
+            message = 'Unknown Server Error';
+        }
+        Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.onmouseenter = Swal.stopTimer;
+                toast.onmouseleave = Swal.resumeTimer;
+            }
+        }).fire({
+            icon: "error",
+            title: 'User Creation Failed!!',
         });
     }
 }

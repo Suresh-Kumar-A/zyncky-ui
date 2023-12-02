@@ -1,30 +1,33 @@
-<div class="layout-header">
-    <div class="header-content">
-        <div class="user-profile">
-            <p-menu #menu [model]="items" [popup]="true"></p-menu>
-            <button pButton type="button" (click)="menu.toggle($event)" icon="pi pi-bars" label="Show"></button>
-        </div>
+<div class="layout-header flex gap-1 px-1 justify-content-between align-items-center">
 
-        <div class="quick-actions">
-            <!-- <a href="#" target="_blank" class="menu-icon">
-                <i class="pi pi-cog text-700"></i>
-            </a> -->
-            <button type="button" class="menu-icon hover:border-primary" (click)="sample()">
-                <i class="pi pi-bell text-700"></i>
+    <div>
+        <span class="p-input-icon-left h-2rem">
+            <i class="pi pi-search"></i>
+            <input type="text" pInputText placeholder="Search" class="h-2rem" />
+        </span>
+    </div>
+    <div class="flex gap-6 mx-3 align-items-center">
+        <span class="p-buttonset" *ngIf="childName=='my-files'">
+            <button pButton pRipple [class.p-button-outlined]="showGridView" label="List" icon="pi pi-list"
+                (click)="showGridView=false;" class="p-button-sm h-2rem"></button>
+            <button pButton pRipple [class.p-button-outlined]="!showGridView" label="Grid" icon="pi pi-th-large"
+                (click)="showGridView=true;" class="p-button-sm h-2rem"></button>
+        </span>
+        <div class="flex gap-2 align-items-center">
+            <button pButton pRipple
+                class="p-button-text border-700 border-1 w-2rem h-2rem p-button-plain p-button-icon-only"
+                (click)="loadItems()">
+                <i class="pi pi-sync" [class.pi-spin]="loadingItems"></i>
             </button>
-            <button type="button" class="menu-icon hover:border-primary" style="background-color: #56558b;">
-                <i class="pi pi-search text-white"></i>
-            </button>
-            <button type="button" class="menu-icon hover:border-primary">
-                <i class="pi pi-comments text-700"></i>
-            </button>
-            <button type="button" class="menu-icon hover:border-primary">
-                <i class="pi pi-user text-700"></i>
-            </button>
-            <button type="button" class="menu-icon hover:border-primary" style="background-color: #c8043f;">
-                <i class="pi pi-sign-out text-white"></i>
-            </button>
+            <button pButton pRipple icon="pi pi-link"
+                class="p-button-text border-700 border-1 w-2rem h-2rem p-button-plain"></button>
+            <button *ngIf="childName=='my-files'" pButton pRipple label="Upload" icon="pi pi-upload"
+                class="h-2rem"></button>
+            <button *ngIf="childName=='my-files'" pButton pRipple label="Share" icon="pi pi-share-alt"
+                class="p-button-outlined h-2rem"></button>
         </div>
-        <!-- <p-avatar icon="pi pi-user" styleClass="mr-2"></p-avatar> -->
+        <button pButton pRipple label="Suresh Kumar" class="p-button-text font-semibold py-0 pl-0 pr-2">
+            <p-avatar image="/assets/images/avatar_blue_bear.png" styleClass="mr-2" shape="circle"></p-avatar>
+        </button>
     </div>
 </div>

@@ -24,21 +24,26 @@ export class UserService {
         });
     }
 
-    signIn(user: User) {
+    logIn(user: User) {
         this.backendService.loginUser(user).subscribe((response) => {
             this.notificationService.showAuthSuccessMessage();
             this.storageService.saveJwtToken(response);
-            this.router.navigateByUrl("/user/dashboard");
+            this.router.navigateByUrl("/user/my-files");
         }, (httpErrResp: HttpErrorResponse) => {
             const apiError: ApiError = httpErrResp.error;
             this.notificationService.showAuthFailedMessage(apiError.mesaage);
         });
     }
 
-    getLoggedInUsername() {
+    logout(): void {
+        this.notificationService.showInfoMessage('Logging out...');
+        this.storageService.clearJwtToken();
+        this.router.navigateByUrl("/login");
+    }
+
+    getUsername(): any {
         const token = this.storageService.getJwtToken();
         const username = jose.decodeJwt(token)["username"];
-        console.log("LoggedInUsername: ", username);
         return username;
     }
 
@@ -46,10 +51,22 @@ export class UserService {
         return this.storageService.doTokenExists();
     }
 
+    getUserUid() {
+        const token = this.storageService.getJwtToken();
+        const uid = jose.decodeJwt(token)["uid"];
+        return uid;
+    }
+
+    getUserRole() {
+        const token = this.storageService.getJwtToken();
+        const role = jose.decodeJwt(token)["role"];
+        return role;
+    }
+
     checkUserSessionAndRedirect() {
         if (this.isUserLoggenIn()) {
             this.notificationService.showInfoMessage('User Session Exists!! Redirecting...');
-            this.router.navigateByUrl("/user/dashboard");
+            this.router.navigateByUrl("/user/my-files");
         }
     }
 }

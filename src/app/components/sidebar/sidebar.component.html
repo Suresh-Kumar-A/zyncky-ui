@@ -5,36 +5,33 @@
     <nav class="p-o flex flex-column h-full">
         <ol class="list-none p-0 flex flex-column gap-1 mx-3 mb-0">
             <li>
-                <button pButton pRipple label="Upload" icon="pi pi-upload" class="w-full text-left"></button>
+                <button pButton pRipple label="My Files" icon="pi pi-folder"
+                    class="p-button-text w-full hover:border-700 border-1 p-button-plain font-semibold text-left"
+                    [ngClass]="{'border-700 border-left-3':activeItem}"></button>
             </li>
             <li>
-                <button pButton pRipple label="Search" icon="pi pi-search"
+                <button pButton pRipple label="Recent" icon="pi pi-clock"
+                    class="p-button-text w-full hover:border-700 border-1 p-button-plain font-semibold text-left"></button>
+            </li>
+            <li>
+                <button pButton pRipple label="Shared" icon="pi pi-users"
                     class="p-button-text w-full hover:border-700 border-1 p-button-plain font-semibold text-left"></button>
             </li>
             <li>
                 <button pButton pRipple label="Settings" icon="pi pi-cog"
                     class="p-button-text w-full hover:border-700 border-1 p-button-plain font-semibold text-left"></button>
             </li>
-        </ol>
-        <p-divider type="solid"></p-divider>
-        <ol  class="list-none p-0 flex flex-column gap-1 mx-3 my-0">
-            <li>
-                <button pButton pRipple label="Recent" icon="pi pi-clock"
-                    class="p-button-text w-full hover:border-700 border-1 p-button-plain font-semibold text-left"></button>
-            </li>
-            <li>
-                <button pButton pRipple label="Shared With Me" icon="pi pi-users"
-                    class="p-button-text w-full hover:border-700 border-1 p-button-plain font-semibold text-left"></button>
-            </li>
-        </ol>
-        <p-divider type="solid"></p-divider>
-        <ol  class="list-none p-0 flex flex-column gap-1 mx-3 mt-0">
             <li>
                 <button pButton pRipple label="Recycle Bin" icon="pi pi-trash"
                     class="p-button-text w-full hover:border-700 border-1 p-button-plain font-semibold text-left"></button>
             </li>
         </ol>
-
+        <p-divider type="solid"></p-divider>
+        <div class="flex flex-column gap-2">
+            <div class="font-semibold text-800">Storage</div>
+            <p-progressBar [value]="50"></p-progressBar>
+            <div class="text-700">2.5 GB used of 5 GB</div>
+        </div>
     </nav>
     <button pButton pRipple label="Log out" icon="pi pi-sign-out" (click)="logout()"
         class="mx-3 p-button-secondary p-button-text p-button-outlined font-semibold"></button>

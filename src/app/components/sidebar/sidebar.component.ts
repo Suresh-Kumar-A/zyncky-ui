@@ -8,6 +8,8 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class SidebarComponent {
 
+  activeItem = true;
+
   constructor(private userService: UserService) { }
 
 

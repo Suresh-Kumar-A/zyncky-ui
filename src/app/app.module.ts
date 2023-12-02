@@ -30,6 +30,9 @@ import { AvatarGroupModule } from 'primeng/avatargroup';
 import { MenuModule } from 'primeng/menu';
 import { BreadcrumbModule } from 'primeng/breadcrumb';
 import { RippleModule } from "primeng/ripple";
+import { ProgressBarModule } from 'primeng/progressbar';
+// For dynamic progressbar demo
+import { ToastModule } from 'primeng/toast';
 
 @NgModule({
   declarations: [
@@ -58,7 +61,9 @@ import { RippleModule } from "primeng/ripple";
     AvatarGroupModule,
     BreadcrumbModule,
     MenuModule,
-    RippleModule
+    RippleModule,
+    ProgressBarModule,
+    ToastModule
   ],
   providers: [BackendService, NotificationService, StorageService, UserService],
   bootstrap: [AppComponent],

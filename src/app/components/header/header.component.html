@@ -1,22 +1,28 @@
-<div class="layout-header flex gap-1 px-1 py-3 justify-content-between align-items-center">
+<div class="layout-header flex gap-1 px-1 justify-content-between align-items-center">
 
     <div>
-
-    </div>
-    <div class="py-1">
-        <span class="p-buttonset">
-            <button pButton pRipple label="List" icon="pi pi-check"></button>
-            <button pButton pRipple label="Grid" icon="pi pi-trash"></button>
+        <span class="p-input-icon-left h-2rem">
+            <i class="pi pi-search"></i>
+            <input type="text" pInputText placeholder="Search" class="h-2rem" />
         </span>
     </div>
-    <div class="flex gap-1">
-        <button pButton pRipple icon="pi pi-discord"
-            class="p-button-text border-700 border-1 p-button-plain font-semibold text-left"></button>
-        <button pButton pRipple icon="pi pi-github"
-            class="p-button-text border-700 border-1 p-button-plain font-semibold text-left"></button>
-            <p-button icon="pi pi-user" severity="info"></p-button>
+    <div class="flex gap-6 mx-3 align-items-center">
+        <span class="p-buttonset">
+            <button pButton pRipple [class.p-button-outlined]="showGridView" label="List" icon="pi pi-list"
+                (click)="showGridView=false;" class="p-button-sm h-2rem"></button>
+            <button pButton pRipple [class.p-button-outlined]="!showGridView" label="Grid" icon="pi pi-th-large"
+                (click)="showGridView=true;" class="p-button-sm h-2rem"></button>
+        </span>
+        <div class="flex gap-2 align-items-center">
+            <button pButton pRipple icon="pi pi-sync"
+                class="p-button-text border-700 border-1 w-2rem h-2rem p-button-plain"></button>
+            <button pButton pRipple icon="pi pi-link"
+                class="p-button-text border-700 border-1 w-2rem h-2rem p-button-plain"></button>
+            <button pButton pRipple label="Upload" icon="pi pi-upload" class="h-2rem"></button>
+            <button pButton pRipple label="Share" icon="pi pi-share-alt" class="p-button-outlined h-2rem"></button>
+        </div>
+        <button pButton pRipple label="Suresh Kumar" class="p-button-text font-semibold py-0 pl-0 pr-2">
+            <p-avatar image="/assets/images/avatar_blue_bear.png" styleClass="mr-2" shape="circle"></p-avatar>
+        </button>
     </div>
-    <button pButton pRipple label="Suresh Kumar" class="mx-3 p-button-text font-semibold py-0 px-2">
-        <p-avatar image="/assets/images/avatar_blue_bear.png" styleClass="mr-2 h-2rem"></p-avatar>
-    </button>
 </div>

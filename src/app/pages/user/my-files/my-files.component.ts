@@ -1,5 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { CheckboxChangeEvent } from 'primeng/checkbox';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { UploadDialogComponent } from 'src/app/components/upload-dialog/upload-dialog.component';
 import { ApiError } from 'src/app/model/apierror.model';
@@ -14,9 +15,11 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./my-files.component.css']
 })
 export class MyFilesComponent implements OnInit {
-  showGridView = false;
+  showGridView = true;
   uploadDialogRef: DynamicDialogRef | undefined;
   filesInfo: FileInfo[] = [];
+  selectAllFiles = false;
+  selectedFiles: FileInfo[] = [];
 
   constructor(private dialogSvc: DialogService, private backendSvc: BackendService,
     private notificationSvc: NotificationService, private userSvc: UserService) { }
@@ -42,18 +45,37 @@ export class MyFilesComponent implements OnInit {
   loadItems() {
     const username = this.userSvc.getUsername();
     this.backendSvc.listFilesInfo(username).subscribe((filesInfo) => {
-      console.log(filesInfo);
-
       if (filesInfo) {
         this.filesInfo = filesInfo;
       }
     }, (httpErrResp: HttpErrorResponse) => {
       const apiError: ApiError = httpErrResp.error;
       this.notificationSvc.showErrorMessage(apiError.mesaage);
-    })
+    });
   }
 
   deleteFile(uid: string) {
 
+  }
+
+  toggleSelection(event: CheckboxChangeEvent, item: FileInfo) {
+    if (event.checked) {
+      this.selectedFiles.push(item);
+    } else {
+      const itemIndex = this.selectedFiles.findIndex(file => file.filename == item.filename);
+      if (itemIndex != -1) {
+        this.selectedFiles.splice(itemIndex, 1);
+      }
+    }
+  }
+
+  toggleGridView() {
+    this.showGridView = true;
+    this.selectedFiles = [];
+  }
+
+  toggleListView() {
+    this.showGridView = false;
+    this.selectedFiles = [];
   }
 }

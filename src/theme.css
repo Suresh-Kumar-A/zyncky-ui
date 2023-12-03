@@ -6923,13 +6923,13 @@ p-treeselect.p-treeselect-clearable .p-treeselect-clear-icon {
 .p-chip {
   background-color: rgba(0, 0, 0, 0.12);
   color: rgba(0, 0, 0, 0.87);
-  border-radius: 16px;
-  padding: 0 1rem;
+  border-radius: 14px;
+  padding: 0 0.5rem;
 }
 .p-chip .p-chip-text {
   line-height: 1.5;
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
+  margin-top: 0.3rem;
+  margin-bottom: 0.3rem;
 }
 .p-chip .p-chip-icon {
   margin-right: 0.5rem;

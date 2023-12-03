@@ -9,7 +9,7 @@ import { ButtonModule } from "primeng/button";
 import { ImageModule } from "primeng/image";
 import { CheckboxModule } from "primeng/checkbox";
 import { InputTextModule } from "primeng/inputtext";
-import { ReactiveFormsModule } from "@angular/forms";
+import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { NotificationService } from "./services/notification.service";
@@ -42,6 +42,7 @@ import { TableModule } from 'primeng/table';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { ChipModule } from 'primeng/chip';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -68,6 +69,7 @@ import { ChipModule } from 'primeng/chip';
     CheckboxModule,
     InputTextModule,
     ReactiveFormsModule,
+    FormsModule,
     DividerModule,
     TagModule,
     MenubarModule,

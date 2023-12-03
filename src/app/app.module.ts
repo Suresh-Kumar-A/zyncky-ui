@@ -20,6 +20,13 @@ import { LoginComponent } from './pages/login/login.component';
 import { CreateAccountComponent } from './pages/create-account/create-account.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { HeaderComponent } from './components/header/header.component';
+import { UserComponent } from './pages/user/user.component';
+import { MyFilesComponent } from './pages/user/my-files/my-files.component';
+import { RecentComponent } from './pages/user/recent/recent.component';
+import { SharedComponent } from './pages/user/shared/shared.component';
+import { SettingsComponent } from './pages/user/settings/settings.component';
+import { RecycleBinComponent } from './pages/user/recycle-bin/recycle-bin.component';
+import { UploadDialogComponent } from './components/upload-dialog/upload-dialog.component';
 
 import { DividerModule } from 'primeng/divider';
 import { TagModule } from 'primeng/tag';
@@ -30,14 +37,10 @@ import { MenuModule } from 'primeng/menu';
 import { BreadcrumbModule } from 'primeng/breadcrumb';
 import { RippleModule } from "primeng/ripple";
 import { ProgressBarModule } from 'primeng/progressbar';
-// For dynamic progressbar demo
-import { ToastModule } from 'primeng/toast';
-import { UserComponent } from './pages/user/user.component';
-import { MyFilesComponent } from './pages/user/my-files/my-files.component';
-import { RecentComponent } from './pages/user/recent/recent.component';
-import { SharedComponent } from './pages/user/shared/shared.component';
-import { SettingsComponent } from './pages/user/settings/settings.component';
-import { RecycleBinComponent } from './pages/user/recycle-bin/recycle-bin.component';
+import { DialogService, DynamicDialogModule } from 'primeng/dynamicdialog';
+import { TableModule } from 'primeng/table';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { ChipModule } from 'primeng/chip';
 
 @NgModule({
   declarations: [
@@ -52,6 +55,7 @@ import { RecycleBinComponent } from './pages/user/recycle-bin/recycle-bin.compon
     SharedComponent,
     SettingsComponent,
     RecycleBinComponent,
+    UploadDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -73,9 +77,12 @@ import { RecycleBinComponent } from './pages/user/recycle-bin/recycle-bin.compon
     MenuModule,
     RippleModule,
     ProgressBarModule,
-    ToastModule
+    DynamicDialogModule,
+    TableModule,
+    ProgressSpinnerModule,
+    ChipModule
   ],
-  providers: [BackendService, NotificationService, StorageService, UserService],
+  providers: [BackendService, NotificationService, StorageService, UserService, DialogService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

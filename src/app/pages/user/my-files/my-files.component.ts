@@ -8,6 +8,7 @@ import { FileInfo } from 'src/app/model/file-info.model';
 import { BackendService } from 'src/app/services/backend.service';
 import { NotificationService } from 'src/app/services/notification.service';
 import { UserService } from 'src/app/services/user.service';
+import { saveAs } from 'file-saver';
 
 @Component({
   selector: 'app-my-files',
@@ -56,6 +57,20 @@ export class MyFilesComponent implements OnInit {
 
   deleteFile(uid: string) {
 
+  }
+
+  downloadFiles() {
+    this.notificationSvc.showInfoMessage('Initiating File(s) download...');
+    this.selectedFiles.forEach(fileInfo => {
+      this.backendSvc.downloadFileContents(fileInfo.uid).subscribe((response) => {
+        this.notificationSvc.showSuccessMessage('File (' + fileInfo.filename + ') downloaded successfully');
+        saveAs(response, fileInfo.filename);
+      }, (httpErrResp: HttpErrorResponse) => {
+        const apiError: ApiError = httpErrResp.error;
+        console.info(apiError)
+        this.notificationSvc.showAuthFailedMessage(apiError.mesaage);
+      });
+    });
   }
 
   toggleSelection(event: CheckboxChangeEvent, item: FileInfo) {

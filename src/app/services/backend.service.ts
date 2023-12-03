@@ -58,6 +58,18 @@ export class BackendService {
   }
 
   deleteFileInfo() {
-    
+
+  }
+
+  downloadFileContents(uid: string) {
+    let headers: HttpHeaders = new HttpHeaders();
+    const authToken = this.storageSvc.getJwtToken();
+    headers = headers.append('Authorization', 'Bearer '.concat(authToken));
+
+    const url = Endpoints.FILE_DOWNLOAD.replace('{FILE_UID}', uid)
+    return this.http.post(url, null, {
+      headers: headers,
+      responseType: 'blob'
+    });
   }
 }

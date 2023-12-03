@@ -3,8 +3,9 @@
         <div class="flex gap-2">
             <button pButton pRipple icon="pi pi-upload" label="Upload" (click)="showUploadDialog()"
                 class="p-button-text font-semibold border-1 border-dashed border-500 p-button-sm"></button>
-            <button pButton pRipple icon="pi pi-download" label="Download" [disabled]="selectedFiles.length == 0"
-                class="p-button-text font-semibold border-1 border-dashed border-500 p-button-sm"></button>
+            <button pButton pRipple icon="pi pi-download" label="Download" (click)="downloadFiles()"
+                class="p-button-text font-semibold border-1 border-dashed border-500 p-button-sm"
+                [disabled]="selectedFiles.length == 0"></button>
             <button pButton pRipple icon="pi pi-trash" label="Recycle bin" [disabled]="selectedFiles.length == 0"
                 class="p-button-text font-semibold border-1 border-dashed border-500 p-button-sm p-button-danger"></button>
         </div>

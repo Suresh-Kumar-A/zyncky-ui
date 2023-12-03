@@ -1,4 +1,8 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ApiError } from 'src/app/model/apierror.model';
+import { BackendService } from 'src/app/services/backend.service';
+import { NotificationService } from 'src/app/services/notification.service';
 
 @Component({
   selector: 'app-upload-dialog',
@@ -8,6 +12,8 @@ import { Component, OnInit } from '@angular/core';
 export class UploadDialogComponent implements OnInit {
 
   uploadedFiles: UploadedFileInfo[] = [];
+
+  constructor(private backendSvc: BackendService, private notificationSvc: NotificationService) { }
 
   ngOnInit(): void {
     this.uploadedFiles = [];
@@ -23,6 +29,7 @@ export class UploadDialogComponent implements OnInit {
     if (files.length == 0) {
       return;
     }
+
     let fileItem: UploadedFileInfo = {
       name: files[0].name,
       type: files[0].type,
@@ -30,12 +37,7 @@ export class UploadDialogComponent implements OnInit {
       size: this.parseFileSize(files[0].size)
     }
     this.uploadedFiles.push(fileItem);
-
-    //mocking loading completed
-    setTimeout(() => {
-      const item = this.uploadedFiles.find(file => file.name == fileItem.name);
-      (item) ? item.uploading = false : '';
-    }, 3500);
+    this.sendDataToApiServer(files[0]);
   }
 
   /**
@@ -67,6 +69,19 @@ export class UploadDialogComponent implements OnInit {
     if (itemIndex != -1) {
       this.uploadedFiles.splice(itemIndex, 1);
     }
+  }
+
+  sendDataToApiServer(file: File) {
+    const fileName = file.name;
+    this.backendSvc.uploadFile(file).subscribe((response) => {
+      if (response) {
+        const item = this.uploadedFiles.find(file => file.name == fileName);
+        (item) ? item.uploading = false : '';
+      }
+    }, (httpErrResp: HttpErrorResponse) => {
+      const apiError: ApiError = httpErrResp.error;
+      this.notificationSvc.showErrorMessage(apiError.mesaage);
+    })
   }
 
 }

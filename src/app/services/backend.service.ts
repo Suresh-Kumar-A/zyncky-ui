@@ -1,13 +1,16 @@
-import { HttpClient, HttpResponse, HttpStatusCode } from "@angular/common/http";
+import { HttpClient, HttpHeaders, HttpResponse, HttpStatusCode } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { User } from "../model/user.model";
 import { Endpoints } from "../constants/endpoints";
 import { Observable } from "rxjs";
 import { ApiError } from "../model/apierror.model";
+import { StorageService } from "./storage.service";
+import { UserService } from "./user.service";
+import { FileInfo } from "../model/file-info.model";
 
 @Injectable()
 export class BackendService {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private storageSvc: StorageService) { }
 
   // { observe: 'response' } - add this to receive Http Response directly
   // parseHttpErrResponseToApiError(response: HttpResponse<User | ApiError>): ApiError {
@@ -29,5 +32,32 @@ export class BackendService {
 
   loginUser(user: User): Observable<any> {
     return this.http.post<any>(Endpoints.LOGIN, user);
+  }
+
+  uploadFile(file: File): Observable<any> {
+    let headers: HttpHeaders = new HttpHeaders();
+    const authToken = this.storageSvc.getJwtToken();
+    headers = headers.append('Authorization', 'Bearer '.concat(authToken));
+
+    const formData = new FormData();
+    formData.append('file', file);
+    return this.http.post<any>(Endpoints.FILE_UPLOAD, formData, {
+      headers: headers
+    });
+  }
+
+  listFilesInfo(username: string): Observable<FileInfo[]> {
+    let headers: HttpHeaders = new HttpHeaders();
+    const authToken = this.storageSvc.getJwtToken();
+    headers = headers.append('Authorization', 'Bearer '.concat(authToken));
+
+    const url = Endpoints.GET_ALL_FILE_INFO.replace('{USER_NAME}', username)
+    return this.http.get<FileInfo[]>(url, {
+      headers: headers
+    });
+  }
+
+  deleteFileInfo() {
+    
   }
 }

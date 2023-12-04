@@ -1,0 +1,11 @@
+.layout-sidebar {
+  width: var(--app-sidebar-width);
+  background-color: white;
+  height: 100%;
+  position: fixed;
+  top: 0;
+}
+
+li > a {
+  text-decoration: none;
+}

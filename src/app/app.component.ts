@@ -9,7 +9,7 @@ import { FilterMatchMode, PrimeNGConfig } from "primeng/api";
 export class AppComponent implements OnInit {
   title = "zyncky-ui";
 
-  constructor(private primengConfig: PrimeNGConfig) {}
+  constructor(private primengConfig: PrimeNGConfig) { }
 
   ngOnInit() {
     this.primengConfig.ripple = true;
@@ -41,5 +41,11 @@ export class AppComponent implements OnInit {
       accept: "Accept",
       reject: "Cancel",
     });
+    this.primengConfig.zIndex = {
+      modal: 1100,    // dialog, sidebar
+      overlay: 1000,  // dropdown, overlaypanel
+      menu: 1000,     // overlay menus
+      tooltip: 1100   // tooltip
+    };
   }
 }

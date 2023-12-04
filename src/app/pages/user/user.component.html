@@ -1,0 +1,13 @@
+<app-sidebar [childName]="childName"></app-sidebar>
+<app-header [childName]="childName"></app-header>
+<div class="layout-content p-2">
+
+    <div [ngSwitch]="childName"  class="surface-card p-2 border-round">
+        <app-my-files *ngSwitchCase="'my-files'"></app-my-files>
+        <app-recent *ngSwitchCase="'recent'"></app-recent>
+        <app-shared *ngSwitchCase="'shared'"></app-shared>
+        <app-settings *ngSwitchCase="'settings'"></app-settings>
+        <app-recycle-bin *ngSwitchCase="'recycle-bin'"></app-recycle-bin>
+    </div>
+
+</div>

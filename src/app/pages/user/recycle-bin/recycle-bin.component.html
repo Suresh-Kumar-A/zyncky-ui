@@ -1,0 +1,20 @@
+<div class="p-2 flex flex-column">
+    <div class="flex gap-1 justify-content-between align-items-center">
+        <div class="flex gap-2">
+            <button pButton pRipple icon="pi pi-trash" label="Empty recycle bin"
+                class="p-button-text font-semibold border-1 border-dashed border-500 p-button-sm"></button>
+            <button pButton pRipple icon="pi pi-undo" label="Restore all items"
+                class="p-button-text font-semibold border-1 border-dashed border-500 p-button-sm"></button>
+        </div>
+        <span class="p-buttonset mr-3">
+            <button pButton pRipple [class.p-button-outlined]="showGridView" label="List" icon="pi pi-list"
+                (click)="showGridView=false;" class="p-button-sm"></button>
+            <button pButton pRipple [class.p-button-outlined]="!showGridView" label="Grid" icon="pi pi-th-large"
+                (click)="showGridView=true;" class="p-button-sm"></button>
+        </span>
+    </div>
+    <p-divider type="solid"></p-divider>
+    <div class="mt-4">
+        <div class="font-semibold text-800">Recyle Bin</div>
+    </div>
+</div>

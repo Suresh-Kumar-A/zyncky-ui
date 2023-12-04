@@ -1,0 +1,25 @@
+<div class="layout-header flex gap-1 px-1 justify-content-between align-items-center">
+
+    <div>
+        <span class="p-input-icon-left h-2rem">
+            <i class="pi pi-search"></i>
+            <input type="text" pInputText placeholder="Search" class="h-2rem" />
+        </span>
+    </div>
+    <div class="flex gap-6 mx-3 align-items-center">
+        <div class="flex gap-2 align-items-center">
+            <button pButton pRipple
+                class="p-button-text border-700 border-1 w-2rem h-2rem p-button-plain p-button-icon-only"
+                (click)="loadItems()">
+                <i class="pi pi-sync" [class.pi-spin]="loadingItems"></i>
+            </button>
+            <button pButton pRipple icon="pi pi-link"
+                class="p-button-text border-700 border-1 w-2rem h-2rem p-button-plain"></button>
+            <button *ngIf="childName=='my-files'" pButton pRipple label="Share" icon="pi pi-share-alt"
+                class="p-button-outlined h-2rem"></button>
+        </div>
+        <button pButton pRipple label="Suresh Kumar" class="p-button-text font-semibold py-0 pl-0 pr-2">
+            <p-avatar image="/assets/images/avatar_blue_bear.png" styleClass="mr-2" shape="circle"></p-avatar>
+        </button>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+<div class="flex align-items-center justify-content-center h-full">
+    <div class="flex flex-column gap-3 surface-card w-30rem border-1 border-round px-3 py-4">
+        <img alt="Zyncky App Logo" src="assets/images/app_logo_transparent.svg" class="mx-auto w-7rem mb-3" />
+        <div class="mx-auto">
+            <div class="text-center font-semibold text-2xl mb-2">Sign In</div>
+            <div class="text-center font-semibold text-700">Use your Zyncky Account</div>
+        </div>
+        <div class="w-full px-3">
+            <form action="#" [formGroup]="loginFormGroup">
+                <span class="p-float-label mb-3 p-input-icon-left w-full">
+                    <i class="pi pi-discord"></i>
+                    <input class="w-full" pInputText id="username" type="text" formControlName="userName" autofocus />
+                    <label htmlFor="username">Username</label>
+                </span>
+                <span class="p-float-label mb-3 p-input-icon-left p-input-icon-right w-full">
+                    <i class="pi pi-key"></i>
+                    <input class="w-full" pInputText id="password" formControlName="password"
+                        type="{{showPassword?'text':'password'}}" />
+                    <label htmlFor="password">Password</label>
+                    <i class="pi {{showPassword?'pi-eye-slash':'pi-eye'}}" (click)="togglePassword()"></i>
+                </span>
+                <button pButton pRipple label="Log In" icon="pi pi-user" class="w-full font-semibold"
+                    (click)="LogIn()"></button>
+            </form>
+            <p-divider type="solid" align="center">
+                <p-tag severity="success" value="OR"></p-tag>
+            </p-divider>
+            <span>Don't have an account?</span>
+            <a [routerLink]="['/create-account']" class="ml-1">Create Account</a>
+        </div>
+    </div>
+</div>

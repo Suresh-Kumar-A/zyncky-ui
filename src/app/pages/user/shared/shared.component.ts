@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./shared.component.css']
 })
 export class SharedComponent {
-
+  showGridView = false;
 }

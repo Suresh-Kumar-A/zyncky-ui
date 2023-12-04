@@ -1,23 +1,90 @@
-<p-card header="Advanced Card" subheader="Card Subheader" [style]="{ width: '360px' }">
-    <ng-template pTemplate="header">
-        <img alt="Card" src="https://primefaces.org/cdn/primeng/images/usercard.png" />
-    </ng-template>
-    <div class="card flex justify-content-center gap-2">
-        <p-tag value="Primary"></p-tag>
-        <p-tag severity="success" value="Success"></p-tag>
-        <p-tag severity="info" value="Info"></p-tag>
-        <p-tag severity="warning" value="Warning"></p-tag>
-        <p-tag severity="danger" value="Danger"></p-tag>
-    </div>
-    <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae
-        numquam
-    </p>
-    <ng-template pTemplate="footer">
-        <span class="p-buttonset">
-            <button pButton pRipple label="Save" icon="pi pi-check"></button>
-            <button pButton pRipple label="Delete" icon="pi pi-trash"></button>
-            <button pButton pRipple label="Cancel" icon="pi pi-times"></button>
+<div class="p-2 flex flex-column">
+    <div class="flex gap-1 justify-content-between align-items-center">
+        <div class="flex gap-2">
+            <button pButton pRipple icon="pi pi-upload" label="Upload" (click)="showUploadDialog()"
+                class="p-button-text font-semibold border-1 border-dashed border-500 p-button-sm"></button>
+            <button pButton pRipple icon="pi pi-download" label="Download" (click)="downloadFiles()"
+                class="p-button-text font-semibold border-1 border-dashed border-500 p-button-sm"
+                [disabled]="selectedFiles.length == 0"></button>
+            <button pButton pRipple icon="pi pi-trash" label="Recycle bin" [disabled]="selectedFiles.length == 0"
+                class="p-button-text font-semibold border-1 border-dashed border-500 p-button-sm p-button-danger"></button>
+        </div>
+        <span class="p-buttonset mr-3">
+            <button pButton pRipple [class.p-button-outlined]="showGridView" label="List" icon="pi pi-list"
+                (click)="toggleListView()" class="p-button-sm"></button>
+            <button pButton pRipple [class.p-button-outlined]="!showGridView" label="Grid" icon="pi pi-th-large"
+                (click)="toggleGridView()" class="p-button-sm"></button>
         </span>
-    </ng-template>
-</p-card>
+    </div>
+    <p-divider type="solid"></p-divider>
+    <div class="mt-4 mb-3">
+        <div class="font-semibold text-800 text-2xl">My Files</div>
+    </div>
+    <p-table *ngIf="!showGridView" [value]="filesInfo" [tableStyle]="{'min-width': '60rem'}"
+        styleClass="p-datatable-striped p-datatable-sm">
+        <ng-template pTemplate="header">
+            <tr>
+                <th class="font-semibold text-700 text-center w-2rem">
+                    <p-checkbox [(ngModel)]="selectAllFiles" [binary]="true" inputId="binary"
+                        [disabled]="true"></p-checkbox>
+                </th>
+                <th class="font-semibold text-700 text-center w-2rem">
+                    <i class="pi pi-file"></i>
+                </th>
+                <th class="font-semibold text-700">Name</th>
+                <th class="font-semibold text-700 text-center w-6rem">Modified</th>
+                <th class="font-semibold text-700 text-center w-6rem">File Size</th>
+                <th class="font-semibold text-700 text-center w-3rem">Sharing</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-item>
+            <tr>
+                <td class="font-bold text-600">
+                    <p-checkbox [binary]="true" (onChange)="toggleSelection($event, item)"></p-checkbox>
+                </td>
+                <td class="font-bold text-600">
+                    <i class="pi pi-file-word"></i>
+                </td>
+                <td class="font-bold text-600">
+                    {{item.filename}}
+                </td>
+                <td class="text-center">
+
+                </td>
+                <td class="text-center">
+                    <p-tag value="2 MB" icon="pi pi-file" severity="info"></p-tag>
+                </td>
+                <td class="text-center">
+                    <i *ngIf="item.sharing" class="pi pi-check-circle text-green-600"></i>
+                    <i *ngIf="!item.sharing" class="pi pi-times-circle text-red-600"></i>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+    <div *ngIf="showGridView" class="grid p-2 gap-4">
+        <div *ngFor="let item of filesInfo"
+            class="flex flex-column gap-2 text-center p-2 border-1 border-round hover:bg-bluegray-100 hover:border-600 max-w-12rem">
+            <div class="flex justify-content-around align-items-start">
+                <ng-container [ngSwitch]="item.fileType">
+                    <img *ngSwitchCase="'SVG'" src="/assets/icons/photos.svg" alt="" class="h-5rem">
+                    <img *ngSwitchCase="'PDF'" src="/assets/icons/pdf.svg" alt="" class="h-5rem">
+                    <img *ngSwitchCase="'TXT'" src="/assets/icons/note.svg" alt="" class="h-5rem">
+                    <img *ngSwitchCase="'DOC'" src="/assets/icons/word.svg" alt="" class="h-5rem">
+                    <img *ngSwitchCase="'MP4'" src="/assets/icons/stream.svg" alt="" class="h-5rem">
+                    <img *ngSwitchDefault src="/assets/icons/default.svg" alt="" class="h-5rem">
+                </ng-container>
+                <p-checkbox [binary]="true" (onChange)="toggleSelection($event, item)"></p-checkbox>
+            </div>
+            <div>
+                {{item.filename}}
+            </div>
+            <div class="flex justify-content-between gap-1">
+                <p-tag value="2 MB" icon="pi pi-file" severity="info"></p-tag>
+                <div>
+                    <p-tag *ngIf="item.sharing" value="Shared" icon="pi pi-times-circle" severity="danger"></p-tag>
+                    <p-tag *ngIf="!item.sharing" value="Private" icon="pi pi-check-circle" severity="success"></p-tag>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
